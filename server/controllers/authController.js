@@ -4,8 +4,7 @@ const jwt = require('jsonwebtoken');
 
 const handleLogin = async (req, res) => {
     const cookies = req.cookies;
-    // ACCESS_TOKEN_SECRET=6056a856507652cba73527f63bb2a3a9f97b0cc981aefa086b0b68172fd95934faf2c8d3bc0c2d5ad227eb33cea2c5c926af52a72e427c9210971aea8bbca30a
-    // REFRESH_TOKEN_SECRET=dd8270c051625c6f446f70f0023ed746eaf4a17e526c12230237f0e0fd516f5b22f7bba450b822567091a84e316e1de6ca4e039e7b79946592066d6e18266610
+    
     const { user, pwd } = req.body;
     if (!user || !pwd) return res.status(400).json({ 'message': 'Username and password are required.' });
 
@@ -23,12 +22,12 @@ const handleLogin = async (req, res) => {
                     "roles": roles
                 }
             },
-            '6056a856507652cba73527f63bb2a3a9f97b0cc981aefa086b0b68172fd95934faf2c8d3bc0c2d5ad227eb33cea2c5c926af52a72e427c9210971aea8bbca30a',
+            '',
             { expiresIn: '1h' }
         );
         const newRefreshToken = jwt.sign(
             { "username": foundUser.username },
-            'dd8270c051625c6f446f70f0023ed746eaf4a17e526c12230237f0e0fd516f5b22f7bba450b822567091a84e316e1de6ca4e039e7b79946592066d6e18266610',
+            '',
             { expiresIn: '1h' }
         );
 
