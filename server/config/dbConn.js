@@ -6,7 +6,7 @@ const connectDB = async () => {
    
 
     try {
-        await mongoose.connect("mongodb+srv://sarn:sarn@cluster0.ieryo.mongodb.net/?retryWrites=true&w=majority", {
+        await mongoose.connect("hello-bud", {
             useUnifiedTopology: true,
             useNewUrlParser: true
             
